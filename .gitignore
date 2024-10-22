@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+*.egg
+dist/
+build/
+*.whl
+
+# Flask
+instance/
+.env
+*.sqlite3
+
+# PyCharm
+.idea/
+*.iml
+*.ipr
+*.iws
+*.log
+
+# Virtual Environments
+venv/
+env/
+ENV/
+.venv/
+.env/
+
+# Misc
+.DS_Store
+Thumbs.db
+*.bak
+*.tmp
+*.swp
