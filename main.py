@@ -1,16 +1,22 @@
-# This is a sample Python script.
+import os
+from flask import Flask, jsonify, request
+from flask_cors import CORS
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+import psutil
 
+app = Flask(__name__)
+if "FLASK_DEBUG" in os.environ:
+    CORS(app)
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+currentFolder = None
 
+@app.route("/api/getDisk")
+def getDisk():
+    return jsonify(psutil.disk_partitions())
+@app.route("/api/getListDir", methods=["POST"])
+def getListDir():
+    if request.method == "POST":
+        return jsonify(os.listdir(request.get_json().get("path")))
 
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+    app.run(port=5333, debug="FLASK_DEBUG" in os.environ)
