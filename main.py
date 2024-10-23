@@ -48,6 +48,11 @@ def getImage(name):
     global currentFolder
     return send_from_directory(currentFolder, name)
 
+@app.route("/api/video/<path:name>")
+def getVideo(name):
+    global currentFolder
+    return send_from_directory(currentFolder, name)
+
 @app.route("/api/it/<int:size>/<path:name>")
 def getImageThumbian(size, name):
     global currentFolder
