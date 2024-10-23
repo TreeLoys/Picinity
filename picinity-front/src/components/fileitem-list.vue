@@ -7,12 +7,13 @@
     </div>
     <div class="item-name">{{props.fileitem.path}}</div>
     <img v-if="['jpg','jpeg', 'bmp', 'png', 'gif'].includes(props.fileitem.ext)"
-         :src="'http://127.0.0.1:5333/api/it/78/'+props.fileitem.path">
+         :src="globals.getUrl('it/78/')+props.fileitem.path">
   </div>
 </template>
 <script setup>
 import {ref, reactive, onMounted} from 'vue'
 import api from '../api.js'
+import globals from '../globals.js'
 const emit = defineEmits(['btnup'])
 const props = defineProps(['fileitem'])
 let data = ref(0)

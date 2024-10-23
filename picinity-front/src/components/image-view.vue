@@ -16,6 +16,7 @@
 </template>
 
 <script setup>
+    import globals from '../globals.js'
     const props = defineProps(['pathtoimg'])
     const emit = defineEmits(['btnnext', 'btnprev', 'btnminimize'])
 </script>

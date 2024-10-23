@@ -10,9 +10,9 @@
             <img src="/arrow-right.svg" width="78" height="78" @click="emit('btnnext')"/>
         </div>
         <div class="image-wrapper">
-            <video width="640" height="480" controls :key="'http://127.0.0.1:5333/api/video/'+props.pathtovideo">
+            <video width="640" height="480" controls :key="globals.getUrl('video/')+props.pathtovideo">
                 <source class="image"
-                        :src="'http://127.0.0.1:5333/api/video/'+props.pathtovideo"
+                        :src="globals.getUrl('video/')+props.pathtovideo"
                         :type="'video/'+getExt()">
             </video>
         </div>
@@ -20,6 +20,7 @@
 </template>
 
 <script setup>
+    import globals from '../globals.js'
     const props = defineProps(['pathtovideo'])
     const emit = defineEmits(['btnnext', 'btnprev', 'btnminimize'])
     console.log("getExt()", getExt())
