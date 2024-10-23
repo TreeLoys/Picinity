@@ -11,21 +11,20 @@ Better replaced HFS.exe, for android (mobile) using.
 ## How to setup?
 Only windows testing
 ##### Install
-For python
+For python\
+`conda create --name picinity python=3.9`\
+`pip install -r requirements.txt`
 
-`pip install flask`
-`pip install flask-cors`
-
-For vue (vite)
-
-`cd picinity-front`
+For vue (vite)\
+`cd picinity-front`\
 `npm install`
-##### Run
-Backend
-
-`set FLASK_DEBUG=1`
+##### Run debug
+Backend\
+`set FLASK_DEBUG=1`\
 `python.exe main.py `
 
-Front
-
+Front\
 `npm run dev`
+
+##### Run prod
+Not testing
