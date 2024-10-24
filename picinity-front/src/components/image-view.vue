@@ -10,7 +10,7 @@
             <img src="/arrow-right.svg" width="78" height="78" @click="emit('btnnext')"/>
         </div>
         <div class="image-wrapper">
-            <img id="image-span" class="image" :src="'http://127.0.0.1:5333/api/img/'+props.pathtoimg" alt="">
+            <img id="image-span" class="image" :src="globals.getUrl('img/')+props.pathtoimg" alt="">
         </div>
     </div>
 </template>

@@ -8,13 +8,18 @@ import psutil
 from PIL import Image
 
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='app', static_url_path="/")
 if "FLASK_DEBUG" in os.environ:
     CORS(app)
 
 currentFolder = None
+# SPA перенаправить все url на SPA
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def catch_all(path):
+    return app.send_static_file("index.html")
 
-
+@app.route
 @app.route("/api/getDisk")
 def getDisk():
     return jsonify(psutil.disk_partitions())
@@ -26,7 +31,7 @@ def getListDir():
     if request.method == "POST":
         currentFolder = request.get_json().get("path")
         files = walk_directory(currentFolder)
-        print(files)
+        # print(files) TODO DEBUG ONLY
         return jsonify(files)
 
 

@@ -1,8 +1,9 @@
+import globals from './globals.js';
+
 var api = {
-    apiURL: "http://localhost:5333",
     get: async (url, params) => {
         if (url.startsWith("/"))
-            url = this.apiURL += url
+            url = globals.urlBASE += url
         let response = await fetch(url)
         if (response.ok)
             return await response.json()
@@ -11,7 +12,7 @@ var api = {
     },
     post: async (url, params) => {
         if (url.startsWith("/"))
-            url = this.apiURL += url
+            url = globals.urlBASE += url
         let response = await fetch(url,
             {
                 method: 'POST',
